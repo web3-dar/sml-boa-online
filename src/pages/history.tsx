@@ -11,19 +11,54 @@ type Transaction = {
 
 const transactions: Transaction[] = [
   // 2025 Transactions
-  // {
-  //   date: "Jul 04, 2025",
-  //   description: "Deposit: Incoming Funds",
-  //   amount: "$290,000.00",
-  //   balance: "$344,955.50",
-  //   type: "credit",
-  // },
+  {
+    date: "Jul 17, 2025",
+    description: "Tradefx safebox deposit ref pending",
+    amount: "$119,000.00",
+    balance: "$173,955.50", // adjust based on your actual balance logic
+    type: "credit",
+  },
+  {
+    date: "Jul 17, 2025",
+    description: "Deposit Bitcoin investments",
+    amount: "$50,000.00",
+    balance: "$54,955.50",
+    type: "credit",
+  },
+  {
+    date: "Jul 07, 2025",
+    description: "Tradefx safebox deposit ref: pending",
+    amount: "$118,000.00",
+    balance: "$4,955.50",
+    type: "credit",
+  },
+  {
+    date: "Jul 06, 2025",
+    description: "Deposit Bitcoin Investments",
+    amount: "$2,000.00",
+    balance: "-$113,044.50",
+    type: "credit",
+  },
+  {
+    date: "Jun 08, 2025",
+    description: "Deposit Bitcoin Investments",
+    amount: "$1,000.00",
+    balance: "-$115,044.50",
+    type: "credit",
+  },
   {
     date: "Jun 05, 2025",
     description: "Tax",
     amount: "-$50,750.00",
     balance: "$54,955.50",
     type: "debit",
+  },
+  {
+    date: "Jun 01, 2025",
+    description: "Deposit Bitcoin Investments",
+    amount: "$500.00",
+    balance: "$105,705.50",
+    type: "credit",
   },
   {
     date: "May 05, 2025",
@@ -147,7 +182,7 @@ const transactions: Transaction[] = [
     type: "debit",
   },
 
- 
+  // 2023 Transactions
   {
     date: "Jun 01, 2023",
     description: "Monthly Service Fee",
@@ -155,7 +190,6 @@ const transactions: Transaction[] = [
     balance: "$64,494.50",
     type: "debit",
   },
- 
   {
     date: "Feb 01, 2023",
     description: "Monthly Service Fee",
@@ -163,8 +197,8 @@ const transactions: Transaction[] = [
     balance: "$76,497.00",
     type: "debit",
   },
-
 ];
+
 
 
 const TransactionHistory = () => {
