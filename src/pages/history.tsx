@@ -9,6 +9,8 @@ const TransactionHistory = () => {
   const [userName, setUserName] = useState<string>("");
   const [userLastName, setLastName] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
+  const [visibleCount, setVisibleCount] = useState<number>(10);
+
 
 
 
@@ -69,7 +71,9 @@ setLoading(false);
   <p className="text-sm text-gray-500 text-center">No transactions found.</p>
 ) : (
   <div className="space-y-4 mb-8">
-    {transactions.map((tx, index) => (
+  {[...transactions].reverse().slice(0, visibleCount).map((tx, index) => (
+
+
       <div
         key={index}
         className="border-b pb-2 cursor-pointer hover:bg-gray-50 transition mb-8"
@@ -84,7 +88,21 @@ setLoading(false);
           <span className="text-xs text-gray-400">Bal: {tx.balance}</span>
         </div>
       </div>
+
+      
     ))}
+
+    {visibleCount < transactions.length && (
+  <div className="text-center mt-4">
+    <button
+      onClick={() => setVisibleCount(prev => prev + 10)}
+      className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition"
+    >
+      Load More
+    </button>
+  </div>
+)}
+
   </div>
 )}
 
