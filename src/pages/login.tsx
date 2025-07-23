@@ -26,48 +26,7 @@ const LoginForm: React.FC = () => {
   };
 
  
-  //   e.preventDefault();
-  //   setIsLoading(true);
-  //   setPopupMessage(null);
-
-  //   try {
-  //     const users = await getUsers(); // Fetch users from backend
-  //     setIsLoading(false);
-
-  //     const user = users.find(
-  //       (user: any) => user.email === email && user.password === password
-  //     );
-
-  //     if (user) {
-  //       setPopupMessage(`Welcome Back, \n  ${user.firstName}!`);
-  //       setPopupType("success");
-  //       setPopupImage(`${user.profilePicture}`);
-  //       setShowPopup(true);
-
-  //       // Save user data in local storage
-  //       localStorage.setItem("loggedInUser", JSON.stringify(user));
-
-  //       setTimeout(() => {
-  //         setShowPopup(false);
-  //         navigate("/pin");
-  //       }, 2000);
-  //     } else {
-  //       setPopupMessage("Incorrect username or password.");
-  //       setPopupType("error");
-  //       setPopupImage(logo);
-  //       setShowPopup(true);
-  //       setTimeout(() => setShowPopup(false), 2000);
-  //     }
-  //   } catch (error) {
-  //     console.error("Error fetching users:", error);
-  //     setIsLoading(false);
-  //     setPopupMessage("Login failed. Please try again.");
-  //     setPopupType("error");
-  //     setPopupImage(logo);
-  //     setShowPopup(true);
-  //     setTimeout(() => setShowPopup(false), 2000);
-  //   }
-  // };
+ 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
@@ -213,21 +172,7 @@ const LoginForm: React.FC = () => {
 
   </div>
 
-           
-            {/* <div className="flex items-center my-4">
-  <div className="flex-grow border-t border-gray-400"></div>
-  <span className="px-3 text-gray-600">OR</span>
-  <div className="flex-grow border-t border-gray-400"></div>
-</div> */}
-
-
-           {/* <div className="flex gap-3">
-            <div className="bg-[#f8f8fb]  text-xl border-2 border-purple-200 px-4 py-2 w-[200px] text-center pointer ">Internet Banking</div>
-            <div className="bg-[#f8f8fb]  text-xl border-2  border-purple-200 px-4 py-2 w-[200px] text-center "><Link to="/signup">
-              Sign Up
-              </Link></div>
-           </div> */}
-
+        
           
  <img src={lom} alt=""  className="mt-9"/>
              
