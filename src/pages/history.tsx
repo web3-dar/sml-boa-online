@@ -40,7 +40,7 @@ setLoading(false);
   }, []);
 
   return (
-    <div className="max-w-5xl mx-auto bg-white rounded-xl shadow-md overflow-hidden mt-8 p-4 md:p-8">
+    <div className="max-w-5xl mx-auto bg-white rounded-xl  overflow-hidden mt-8 p-4 md:p-8">
       <div className="text-center mb-6">
         <h2 className="text-lg md:text-xl font-semibold">ADV PLUS BANKING - 1234</h2>
         <p className="text-2xl md:text-3xl font-bold mt-2">
