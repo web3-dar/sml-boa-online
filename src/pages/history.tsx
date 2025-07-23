@@ -8,6 +8,9 @@ const TransactionHistory = () => {
   const [selectedTransaction, setSelectedTransaction] = useState<Transaction | null>(null);
   const [userName, setUserName] = useState<string>("");
   const [userLastName, setLastName] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(true);
+
+
 
   useEffect(() => {
     const loadData = async () => {
@@ -20,10 +23,14 @@ const TransactionHistory = () => {
         setUserName(user.firstName || "");
         setLastName(user.lastName || "");
 
-        const history = await fetchHistoryForLoggedUser(user.email);
-        setTransactions(history.reverse());
+         const history = await fetchHistoryForLoggedUser(user.email);
+setTransactions(history.reverse());
+setLoading(false);
+
+
       } catch (err) {
         console.error("Failed to load user data or history:", err);
+         setLoading(false);
       }
     };
 
@@ -45,28 +52,42 @@ const TransactionHistory = () => {
 
       <div className="mt-4">
         <h3 className="text-gray-600 font-semibold text-sm md:text-base mb-2">RECENT TRANSACTIONS</h3>
-        {transactions.length === 0 ? (
-          <p className="text-sm text-gray-500 text-center">No transactions found.</p>
-        ) : (
-          <div className="space-y-4 mb-8">
-            {transactions.map((tx, index) => (
-              <div
-                key={index}
-                className="border-b pb-2 cursor-pointer hover:bg-gray-50 transition mb-8"
-                onClick={() => setSelectedTransaction(tx)}
-              >
-                <p className="text-xs text-gray-500">{tx.date}</p>
-                <p className="text-sm font-medium text-gray-800">{tx.description}</p>
-                <div className="flex justify-between items-center mt-1">
-                  <span className={`font-semibold ${tx.type === "debit" ? "text-red-500" : "text-green-600"}`}>
-                    {tx.amount}
-                  </span>
-                  <span className="text-xs text-gray-400">Bal: {tx.balance}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
+       {loading ? (
+  <div className="space-y-4 mb-8">
+    {[...Array(4)].map((_, i) => (
+      <div key={i} className="animate-pulse space-y-2 border-b pb-2 mb-8">
+        <div className="h-3 w-1/4 bg-gray-300 rounded"></div>
+        <div className="h-4 w-3/4 bg-gray-300 rounded"></div>
+        <div className="flex justify-between items-center mt-1">
+          <div className="h-4 w-20 bg-gray-300 rounded"></div>
+          <div className="h-3 w-16 bg-gray-300 rounded"></div>
+        </div>
+      </div>
+    ))}
+  </div>
+) : transactions.length === 0 ? (
+  <p className="text-sm text-gray-500 text-center">No transactions found.</p>
+) : (
+  <div className="space-y-4 mb-8">
+    {transactions.map((tx, index) => (
+      <div
+        key={index}
+        className="border-b pb-2 cursor-pointer hover:bg-gray-50 transition mb-8"
+        onClick={() => setSelectedTransaction(tx)}
+      >
+        <p className="text-xs text-gray-500">{tx.date}</p>
+        <p className="text-sm font-medium text-gray-800">{tx.description}</p>
+        <div className="flex justify-between items-center mt-1">
+          <span className={`font-semibold ${tx.type === "debit" ? "text-red-500" : "text-green-600"}`}>
+            {tx.amount}
+          </span>
+          <span className="text-xs text-gray-400">Bal: {tx.balance}</span>
+        </div>
+      </div>
+    ))}
+  </div>
+)}
+
       </div>
 
       {selectedTransaction && (
