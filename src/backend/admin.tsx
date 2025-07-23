@@ -237,8 +237,9 @@ please don't delete all the accounts, minimum of one should be left
           const form = e.target as HTMLFormElement;
           const newEntry = {
             date: (form.date as any).value,
-            amount: parseFloat((form.amount as any).value),
+            amount: (form.amount as any).value,
             description: (form.description as any).value,
+            balance: (form.balance as any).value,
             type: (form.type as any).value,
           };
           const updated = {
@@ -251,8 +252,9 @@ please don't delete all the accounts, minimum of one should be left
         className="space-y-2"
       >
         <input type="date" name="date" className="w-full border p-2 rounded" required />
-        <input type="number" name="amount" className="w-full border p-2 rounded" placeholder="Amount" required />
+        <input type="text" name="amount" className="w-full border p-2 rounded" placeholder="Amount" required />
         <input type="text" name="description" className="w-full border p-2 rounded" placeholder="Description" required />
+        <input type="text" name="balance" className="w-full border p-2 rounded" placeholder="Balance" required />
         <select name="type" className="w-full border p-2 rounded" required>
           <option value="credit">Credit</option>
           <option value="debit">Debit</option>

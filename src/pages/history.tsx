@@ -26,7 +26,7 @@ const TransactionHistory = () => {
         setLastName(user.lastName || "");
 
          const history = await fetchHistoryForLoggedUser(user.email);
-setTransactions(history.reverse());
+setTransactions(history);
 setLoading(false);
 
 
