@@ -60,7 +60,6 @@ export const deleteUser = async (index: number): Promise<void> => {
   await axios.put(BASE_URL, { users }, { headers });
 };
 
-// Fetch history for the logged-in user
 export const fetchHistoryForLoggedUser = async (email: string): Promise<Transaction[]> => {
   const users = await getUsers();
   const me = users.find((u: User) => u.email === email);
