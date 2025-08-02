@@ -85,7 +85,7 @@ setLoading(false);
           <span className={`font-semibold ${tx.type === "debit" ? "text-red-500" : "text-green-600"}`}>
             {tx.amount}
           </span>
-          <span className="text-xs text-gray-400">Bal: {tx.balance}</span>
+          <span className="text-xs text-gray-400">Bal: {userAmount}</span>
         </div>
       </div>
 
