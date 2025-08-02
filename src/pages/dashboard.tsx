@@ -163,7 +163,7 @@ const [showViewModal, setShowViewModal] = useState(false);
       <div className="mb-6 text-sm text-gray-700">
         <p>Welcome, {userName} {userLastName}</p>
         <p>Account Number: <strong>{AcctNum}</strong></p>
-        <p>Routine Number: <strong>233293939</strong></p>
+        <p>Routine Number: <strong>063100277</strong></p>
         <p>Account Balance: <strong>${userAmount.toLocaleString(undefined, { minimumFractionDigits: 2 })}</strong></p>
         <p>Last Deposit Date: <strong>July 17, 2025</strong></p>
         <p>Deposit Reference Number: <strong>2234-WN7823490</strong></p>
