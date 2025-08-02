@@ -85,7 +85,10 @@ setLoading(false);
           <span className={`font-semibold ${tx.type === "debit" ? "text-red-500" : "text-green-600"}`}>
             {tx.amount}
           </span>
-          <span className="text-xs text-gray-400">Bal: {userAmount}</span>
+         <span className="text-xs text-gray-400">
+  Bal: {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(userAmount)}
+</span>
+
         </div>
       </div>
 
